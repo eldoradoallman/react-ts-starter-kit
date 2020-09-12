@@ -1,6 +1,6 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode } from "react";
 
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface UserData {
   id: string;
@@ -13,7 +13,7 @@ export const UserContext = createContext<
 >([null, () => {}]);
 
 export const UserProvider: React.FC<ReactNode> = ({ children }) => {
-  const [token] = useLocalStorage('token');
+  const [token] = useLocalStorage("token");
   const [state, setState] = useState<Partial<UserData> | null>(
     !!token ? JSON.parse(token) : null
   );

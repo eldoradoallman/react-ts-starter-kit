@@ -1,7 +1,7 @@
-import React, { ReactNode, useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, { ReactNode, useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
 
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from "../contexts/UserContext";
 
 export const PrivateRoute: React.FC<{
   path: string;
@@ -18,7 +18,7 @@ export const PrivateRoute: React.FC<{
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: "/login",
               state: { from: location },
             }}
           />

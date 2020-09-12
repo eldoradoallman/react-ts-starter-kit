@@ -1,7 +1,7 @@
-import React from 'react';
-import { RouteProps } from 'react-router-dom';
+import React from "react";
+import { RouteProps } from "react-router-dom";
 
-import { usePosts } from './usePosts';
+import { usePosts } from "./usePosts";
 
 export const Posts: React.FC<RouteProps> = (props) => {
   const { title } = usePosts(props);

@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import { UserProvider } from '../contexts/UserContext';
-import { Layout } from './Layout';
+import { UserProvider } from "../contexts/UserContext";
+import { Layout } from "./Layout";
 
 const App: React.FC<ReactNode> = () => {
   return (

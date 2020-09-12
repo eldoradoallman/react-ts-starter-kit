@@ -1,9 +1,9 @@
-import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import React from "react";
+import { RouteComponentProps } from "react-router-dom";
 
-import { useHome } from './useHome';
+import { useHome } from "./useHome";
 
-import logo from '../../assets/images/logo.svg';
+import logo from "../../assets/images/logo.svg";
 
 export const Home: React.FC<RouteComponentProps> = (props) => {
   const { resLogin, submit } = useHome(props);

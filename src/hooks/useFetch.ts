@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
+import { useState, useEffect, useCallback } from "react";
+import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from "axios";
 
 interface UseFetchError {
   message: string;
@@ -21,7 +21,7 @@ type ReturnType<T, K> = [T, (options: Config<K>) => void];
 export const useFetch = <T, K>(
   url: string
 ): ReturnType<UseFetchState<T, K>, K> => {
-  const baseUrl = 'https://jsonplaceholder.typicode.com';
+  const baseUrl = "https://jsonplaceholder.typicode.com";
 
   const initialState: UseFetchState<T, K> = {
     config: undefined,

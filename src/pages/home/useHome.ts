@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useContext, useEffect } from "react";
+import { RouteComponentProps } from "react-router-dom";
 
-import { useFetch } from '../../hooks/useFetch';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { UserContext } from '../../contexts/UserContext';
+import { useFetch } from "../../hooks/useFetch";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { UserContext } from "../../contexts/UserContext";
 
 interface FetchLoginData {
   id: number;
@@ -17,16 +17,16 @@ interface Payload {
 }
 
 export const useHome = (props: RouteComponentProps) => {
-  const [resLogin, doLogin] = useFetch<FetchLoginData, Payload>('/posts');
-  const [, setToken] = useLocalStorage('token');
+  const [resLogin, doLogin] = useFetch<FetchLoginData, Payload>("/posts");
+  const [, setToken] = useLocalStorage("token");
   const [, setUser] = useContext(UserContext);
 
   const submit = (): void => {
     doLogin({
-      method: 'post',
+      method: "post",
       data: {
-        title: 'New Post',
-        content: 'Some description',
+        title: "New Post",
+        content: "Some description",
       },
     });
   };
@@ -35,7 +35,7 @@ export const useHome = (props: RouteComponentProps) => {
     if (!resLogin.data) return;
 
     setToken(JSON.stringify(resLogin.data));
-    setUser({ id: '123', email: 'test@test.com', username: 'johndoe' });
+    setUser({ id: "123", email: "test@test.com", username: "johndoe" });
   }, [resLogin.data, setToken, setUser]);
 
   return { resLogin, submit };
