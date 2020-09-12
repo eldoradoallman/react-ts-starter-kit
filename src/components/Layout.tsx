@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import { Routes } from '../routes/Routes';
+import { Routes } from "../routes/Routes";
 
 export const Layout: React.FC<ReactNode> = () => {
   return (
