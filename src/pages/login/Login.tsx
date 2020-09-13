@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RouteProps } from "react-router-dom";
 
 import { useLogin } from "./useLogin";
@@ -6,18 +6,7 @@ import { useLogin } from "./useLogin";
 import logo from "../../assets/images/logo.svg";
 
 export const Login: React.FC<RouteProps> = (props) => {
-  const {
-    resLogin,
-    handleLogin,
-    email,
-    password,
-    setEmail,
-    setPassword,
-  } = useLogin(props);
-
-  useEffect(() => {
-    console.log("<Login />");
-  });
+  const { resLogin, handleLogin, input, handleChangeInput } = useLogin(props);
 
   return (
     <div className="login-page">
@@ -25,21 +14,18 @@ export const Login: React.FC<RouteProps> = (props) => {
       <img className="App-logo" src={logo} alt="React" title="React" />
       {!!resLogin.isLoading && <p>Fetching data...</p>}
       <input
+        name="email"
         type="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        value={input.email}
+        onChange={handleChangeInput}
       />
       <input
+        name="password"
         type="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
+        value={input.password}
+        onChange={handleChangeInput}
       />
-      <button
-        disabled={!!resLogin.isLoading}
-        onClick={() => {
-          if (!resLogin.isLoading) handleLogin({ email, password });
-        }}
-      >
+      <button disabled={!!resLogin.isLoading} onClick={handleLogin}>
         Login
       </button>
     </div>
