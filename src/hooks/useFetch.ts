@@ -43,13 +43,13 @@ export const useFetch = <T, K>(
   }, []);
 
   useEffect(() => {
-    let skipGetResponseAfterDestroy = false;
+    let isMounted = true;
 
     if (!isLoading) return;
 
     axios(baseUrl + url, config)
       .then((response: AxiosResponse<T>) => {
-        if (!skipGetResponseAfterDestroy)
+        if (!!isMounted)
           setState((prevState) => ({
             ...prevState,
             data: response.data,
@@ -57,7 +57,7 @@ export const useFetch = <T, K>(
           }));
       })
       .catch((err: AxiosError<UseFetchError>) => {
-        if (!skipGetResponseAfterDestroy)
+        if (!!isMounted)
           setState((prevState) => ({
             ...prevState,
             error: !!err.response ? err.response.data : undefined,
@@ -66,7 +66,7 @@ export const useFetch = <T, K>(
       });
 
     return () => {
-      skipGetResponseAfterDestroy = true;
+      isMounted = false;
     };
   }, [url, config, isLoading]);
 

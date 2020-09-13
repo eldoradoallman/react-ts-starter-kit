@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
 
-import { UserProvider } from "../contexts/UserContext";
+import { AuthProvider } from "../contexts/AuthContext";
 import { Layout } from "./Layout";
 
 const App: React.FC<ReactNode> = () => {
   return (
-    <UserProvider>
+    <AuthProvider>
       <Layout />
-    </UserProvider>
+    </AuthProvider>
   );
 };
 

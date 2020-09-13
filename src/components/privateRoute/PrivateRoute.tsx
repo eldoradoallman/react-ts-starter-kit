@@ -1,19 +1,19 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode } from "react";
 import { Route, Redirect } from "react-router-dom";
 
-import { UserContext } from "../contexts/UserContext";
+import { usePrivateRoute } from "./usePrivateRoute";
 
 export const PrivateRoute: React.FC<{
   path: string;
   component: React.FC<ReactNode>;
 }> = ({ component: Component, ...rest }) => {
-  const [user] = useContext(UserContext);
+  const { user } = usePrivateRoute();
 
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        !!user ? (
+      render={({ location }) => {
+        return !!user ? (
           <Component {...rest} />
         ) : (
           <Redirect
@@ -22,8 +22,8 @@ export const PrivateRoute: React.FC<{
               state: { from: location },
             }}
           />
-        )
-      }
+        );
+      }}
     />
   );
 };
