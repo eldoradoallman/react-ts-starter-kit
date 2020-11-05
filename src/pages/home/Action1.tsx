@@ -8,7 +8,7 @@ export const Action1 = () => {
   const increasePopulation: any = useStore((state) => state.increasePopulation);
 
   useEffect(() => {
-    console.log("setState1", setState1);
+    console.log("setState1", setState1, increasePopulation);
   });
 
   return (

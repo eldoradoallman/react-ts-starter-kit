@@ -10,7 +10,7 @@ export const Action2 = () => {
   );
 
   useEffect(() => {
-    console.log("setState2", setState2);
+    console.log("setState2", setState2, increasePopulation);
   });
 
   return (
