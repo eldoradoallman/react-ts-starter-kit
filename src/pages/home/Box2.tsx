@@ -8,12 +8,23 @@ export const Box2 = () => {
   const cats = useStore((state) => state.cats);
 
   useEffect(() => {
-    console.log("state2", state2, cats);
+    console.log(
+      "Box 2 component subscribe to both 'state2' & 'cats' values from context and zustand",
+      state2,
+      cats
+    );
   });
 
   return (
-    <div>
-      <div>State 2: {state2}</div>
+    <div
+      style={{
+        width: "200px",
+        backgroundColor: "#eee",
+        padding: "20px",
+        margin: "20px",
+      }}
+    >
+      <div>Context 2: {state2}</div>
       <div>Zustand 2: {cats}</div>
     </div>
   );
