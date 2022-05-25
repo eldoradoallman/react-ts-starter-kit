@@ -13,7 +13,7 @@ export const Action2 = () => {
 
   useEffect(() => {
     console.log(
-      "Action 2 Component know something is changing, it shouldn't though since the component doesn't subscribe to any state changes"
+      "Action 2: Component know something is changing, it shouldn't though since the component doesn't subscribe to any state changes"
     );
   });
 
