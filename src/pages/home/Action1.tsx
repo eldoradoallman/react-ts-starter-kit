@@ -4,18 +4,25 @@ import { TestActionsContext } from "../../contexts/TestContext";
 import { useStore } from "./store";
 
 export const Action1 = () => {
+  // this component has access to methods/actions from context and zustand,
+  // but it doesn't have any access to states from context or zustand
   const { setState1 } = useContext(TestActionsContext);
   const increasePopulation: any = useStore((state) => state.increasePopulation);
 
   useEffect(() => {
-    console.log("setState1", setState1, increasePopulation);
+    console.log(
+      "Action 1 Component know something is changing, it shouldn't though since the component doesn't subscribe to any state changes"
+    );
   });
 
   return (
     <div>
-      setState1:
-      <button onClick={() => setState1()}>Click Context</button>
-      <button onClick={() => increasePopulation()}>Click Zustand</button>
+      <button style={{ margin: "5px" }} onClick={() => setState1()}>
+        Action Context 1
+      </button>
+      <button style={{ margin: "5px" }} onClick={() => increasePopulation()}>
+        Action Zustand 1
+      </button>
     </div>
   );
 };

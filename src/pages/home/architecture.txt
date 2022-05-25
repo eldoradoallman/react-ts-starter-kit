@@ -1,0 +1,10 @@
+presentation (view component)
+business logic (logic component)
+state management
+routing/navigation
+services
+styles
+environment config
+testing
+external (local storage)
+service worker

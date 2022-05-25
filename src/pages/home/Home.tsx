@@ -14,10 +14,14 @@ export const Home: React.FC<RouteComponentProps> = () => {
       <h1>Home Page</h1>
       <div>{title}</div>
       <input onChange={(e) => setTitle(e.target.value)} />
-      <Box1 />
-      <Box2 />
-      <Action1 />
-      <Action2 />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Box1 />
+        <Box2 />
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Action1 />
+        <Action2 />
+      </div>
     </div>
   );
 };
